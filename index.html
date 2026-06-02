@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Rajavignesh SA | Personal Portfolio</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fafcff;
+      color: #0a1128;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* animated gradient background */
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: linear-gradient(135deg, #f0f5ff 0%, #fef7e9 100%);
+      background-size: 200% 200%;
+      animation: floatGradient 14s ease infinite;
+    }
+
+    @keyframes floatGradient {
+      0% { background-position: 0% 50%;}
+      50% { background-position: 100% 50%;}
+      100% { background-position: 0% 50%;}
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+      position: relative;
+    }
+
+    /* modern navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1rem 0 2rem 0;
+      border-bottom: 1px solid #e2edff;
+      margin-bottom: 1rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.65rem;
+      background: linear-gradient(130deg, #0f2b6d, #2c5fdf);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #1a2c4e;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: #2c5fdf;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 0%;
+      height: 2.5px;
+      background: #2c5fdf;
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* ========= NAME SESSION (HERO) ========= */
+    .hero-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 2rem 0 3.5rem;
+    }
+
+    .hero-left {
+      flex: 1.3;
+      animation: fadeSlideUp 0.8s ease;
+    }
+
+    .hero-left .greeting {
+      background: #dfe9ff;
+      color: #1c4ed8;
+      padding: 0.3rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .hero-left h1 {
+      font-size: 3.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+    }
+
+    .gradient-name {
+      background: linear-gradient(120deg, #1e3a8a, #3b82f6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-tagline {
+      font-size: 1.2rem;
+      color: #2c3e66;
+      margin: 1rem 0 1.5rem;
+      font-weight: 500;
+      border-left: 3px solid #3b82f6;
+      padding-left: 1rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.75rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn-primary {
+      background: #0f2b4f;
+      color: white;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn-primary:hover {
+      background: #1e3a8a;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 18px -8px rgba(30,58,138,0.3);
+    }
+
+    .btn-outline {
+      border: 1.5px solid #1e3a8a;
+      color: #1e3a8a;
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: #1e3a8a;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .hero-right {
+      flex: 0.9;
+      text-align: center;
+      animation: fadeScale 0.7s ease;
+    }
+
+    /* Profile image container - REPLACE YOUR PHOTO HERE */
+    .profile-image {
+      width: 190px;
+      height: 190px;
+      margin: 0 auto;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.15);
+      border: 3px solid white;
+      background: linear-gradient(145deg, #ffffff, #eef3ff);
+      display: block;
+    }
+
+    .avatar-icon {
+      background: white;
+      width: 190px;
+      height: 190px;
+      margin: 0 auto;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.15);
+      border: 3px solid white;
+      background: linear-gradient(145deg, #ffffff, #eef3ff);
+    }
+
+    .avatar-icon i {
+      font-size: 5rem;
+      color: #1e3a8a;
+    }
+
+    /* instruction note for customization */
+    .custom-note {
+      background: #eef2ff;
+      border-radius: 12px;
+      padding: 0.8rem 1.2rem;
+      margin: 1rem 0;
+      font-size: 0.85rem;
+      color: #1e3a8a;
+      border-left: 4px solid #3b82f6;
+    }
+
+    /* section common style */
+    section {
+      margin: 4rem 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .section-title i {
+      color: #2c5fdf;
+      font-size: 1.9rem;
+    }
+
+    /* education cards */
+    .edu-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.3rem;
+    }
+
+    .edu-card {
+      background: white;
+      border-radius: 1.3rem;
+      padding: 1.4rem 1.8rem;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.03);
+      border: 1px solid #eaf0ff;
+      transition: all 0.3s;
+    }
+
+    .edu-card:hover {
+      transform: translateX(6px);
+      border-left: 4px solid #2c5fdf;
+    }
+
+    .edu-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .edu-detail {
+      color: #334155;
+      margin-top: 0.4rem;
+    }
+
+    /* skills chips */
+    .skills-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+    }
+
+    .skill-chip {
+      background: white;
+      border-radius: 60px;
+      padding: 0.6rem 1.4rem;
+      font-weight: 500;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      border: 1px solid #dce7ff;
+      transition: all 0.25s;
+      backdrop-filter: blur(2px);
+    }
+
+    .skill-chip:hover {
+      transform: translateY(-5px);
+      border-color: #3b82f6;
+      box-shadow: 0 12px 15px -10px rgba(59,130,246,0.2);
+    }
+
+    /* projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      transition: all 0.3s;
+      border: 1px solid #eef2ff;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.1);
+      border-color: #bfd9ff;
+    }
+
+    .project-icon {
+      font-size: 2.2rem;
+      color: #2c5fdf;
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .badge-tech {
+      display: inline-block;
+      background: #eef3ff;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    /* internship cards & achievements */
+    .intern-list, .achievement-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .intern-item, .achievement-item {
+      background: white;
+      border-radius: 1.2rem;
+      padding: 1.2rem 1.5rem;
+      border-left: 5px solid #2c5fdf;
+      transition: 0.2s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .patent-item {
+      background: #fefaf0;
+      border-left-color: #f59e0b;
+    }
+
+    /* contact section */
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(6px);
+      border-radius: 2rem;
+      padding: 1.8rem 2rem;
+      justify-content: space-between;
+    }
+
+    .contact-info p {
+      margin: 0.8rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .resume-btn {
+      background: #1e3a8a;
+      color: white;
+      padding: 0.6rem 1.4rem;
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      margin-top: 0.5rem;
+    }
+
+    .resume-btn:hover {
+      background: #2c5fdf;
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2rem 0 1rem;
+      border-top: 1px solid #dce7f5;
+      margin-top: 2rem;
+      color: #475569;
+    }
+
+    /* animations */
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeScale {
+      from {
+        opacity: 0;
+        transform: scale(0.88);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes chipPop {
+      0% { opacity: 0; transform: scale(0.85);}
+      100% { opacity: 1; transform: scale(1);}
+    }
+
+    /* responsive */
+    @media (max-width: 750px) {
+      .container {
+        padding: 1rem;
+      }
+      .hero-left h1 {
+        font-size: 2.3rem;
+      }
+      .hero-section {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      .hero-tagline {
+        text-align: left;
+      }
+      .section-title {
+        font-size: 1.7rem;
+      }
+      .contact-grid {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="animated-bg"></div>
+<div class="container">
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <div class="logo"><i class="fas fa-code"></i> Rajavignesh.dev</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#internship">Internship</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <!-- 1. NAME SESSION  -->
+  <div id="home" class="hero-section">
+    <div class="hero-left">
+      <span class="greeting"><i class="fas fa-hand-peace"></i> Welcome — Innovator & Developer</span>
+      <h1>Rajavignesh <span class="gradient-name">SA</span></h1>
+      <div class="hero-tagline">
+        <i class="fas fa-brain"></i> B.Tech Information Technology | Aspiring Software Developer | AI Enthusiastic | Scouting Backend Technologies
+      </div>
+      <p style="color: #2d3a5e; margin-bottom: 1.5rem;">Engineering intelligent solutions, building scalable systems, and transforming ideas into impactful technology for the future.</p>
+      <div class="btn-group">
+        <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Connect with me</a>
+        <a href="#projects" class="btn btn-outline"><i class="fas fa-rocket"></i> Explore Work</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <!--  PROFILE IMAGE  -->
+    
+      <img src="my photo.jpg"alt="Rajavignesh SA" class="profile-image">
+      
+      
+      <p style="margin-top: 1rem; font-weight: 500;"><i class="fas fa-map-pin"></i> Coimbatore, Tamil Nadu</p>
+    </div>
+  </div>
+
+  <!-- 2. EDUCATION SECTION -->
+  <section id="education">
+    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-title">🎓 Bachelor of Technology in Information Technology</div>
+        <div class="edu-detail">Adithya Institute of Technology, Coimbatore | 2024 – 2028</div>
+        <div class="edu-detail"><strong>CGPA: 8.823</strong> (till Semester 3)</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-title">📚 Higher Secondary (HSC)</div>
+        <div class="edu-detail">PSG Sarvajana Higher Secondary School, Coimbatore | 2022 – 2023</div>
+        <div class="edu-detail">Percentage: <strong>79.16%</strong></div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-title">📖 SSLC</div>
+        <div class="edu-detail">PSG Sarvajana Higher Secondary School, Coimbatore | 2020 – 2021</div>
+        <div class="edu-detail">Percentage: <strong>84.5%</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SKILLS SECTION  -->
+  <section id="skills">
+    <h2 class="section-title"><i class="fas fa-cogs"></i> Technical Skills</h2>
+    <div class="skills-wrapper">
+      <span class="skill-chip">Java</span>
+      <span class="skill-chip">Python</span>
+      <span class="skill-chip">Spring Boot</span>
+      <span class="skill-chip">SQL</span>
+      
+      <span class="skill-chip">AI Tools</span>
+      <span class="skill-chip">Canva</span>
+      <span class="skill-chip">Git Hub</span>
+    </div>
+    <div style="margin-top: 2rem;">
+      <h2 class="section-title" style="margin-bottom: 1.2rem;"><i class="fas fa-users"></i> Soft Skills</h2>
+      <div class="skills-wrapper">
+        <span class="skill-chip">Communication</span>
+        <span class="skill-chip">Leadership</span>
+        <span class="skill-chip">Problem Solving</span>
+        <span class="skill-chip">Teamwork</span>
+        <span class="skill-chip">Adaptability</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PROJECTS -->
+  <section id="projects">
+    <h2 class="section-title"><i class="fas fa-laptop-code"></i>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Student Grade Management System</h3>
+        <p>Java + OOP for managing student performance, grade tracking and evaluation logic.</p>
+        <span class="badge-tech">Java · OOP</span>
+      </div>
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-message"></i></div>
+        <h3>User Authentication ManagementSystem & Chat Application</h3>
+        <p>Secure login + real-time messaging using Python & object-oriented design.</p>
+        <span class="badge-tech">Python · Sockets</span>
+      </div>
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-camera-retro"></i></div>
+        <h3>Face Detection System Uisng Python</h3>
+        <p>Real-time face detection with OpenCV and Python, computer vision fundamentals.</p>
+        <span class="badge-tech">OpenCV · Python</span>
+      </div>
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-calendar-alt"></i></div>
+        <h3>Online Course Reservation System</h3>
+        <p>Database integrated enrollment system using Java & DB for course management.</p>
+        <span class="badge-tech">Java · JDBC · SQL</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. INTERNSHIP + PATENT  -->
+  <section id="internship">
+    <h2 class="section-title"><i class="fas fa-briefcase"></i> Internship & Patent</h2>
+    <div class="intern-list">
+      <!-- AI Driven Internship  -->
+      <div class="intern-item">
+        <h3><i class="fas fa-microchip"></i> AI Driven Software Developer Intern — Pantech Solutions, Coimbatore</h3>
+        <p>Integrated AI features into software products, hands-on development, debugging, and software workflow optimization (April29/2026-May28/2026).</p>
+      </div>
+      <div class="intern-item patent-item">
+        <h3><i class="fas fa-file-alt"></i> Patent Published: NEXT GEN EGC</h3>
+        <p>“Medical Image based Cancer Type Prediction using AI” — conceptual framework & methodology (April10/2026).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. ACHIEVEMENTS & CERTIFICATIONS -->
+  <section id="achievements">
+    <h2 class="section-title"><i class="fas fa-trophy"></i> Achievements & Honors</h2>
+    <div class="achievement-list">
+      <div class="achievement-item"><i class="fas fa-medal"></i> <strong>2nd Place & Best Paper Award</strong> - National Conference on  DIGITECHs 2K25 @ Akshaya College of Engineering</div>
+      <div class="achievement-item"><i class="fas fa-book"></i> <strong>Attended One Week Skill Development Training</strong> on Python for Data Science @ Adithya Institute of Trechnology</div>
+      <div class="achievement-item"><i class="fas fa-microphone-alt"></i> Presented paper “Self-Healing Microservices Architecture using AI-Driven Failure Prediction” at ICIRES-2K26 (Christ The King Engineering College)</div>
+      <div class="achievement-item"><i class="fas fa-lightbulb"></i> Shortlisted for <strong>National Level IPR Innovation Challenge 2026</strong> by RAALTECH SOLUTION</div>
+      <div class="achievement-item"><i class="fas fa-users"></i> Participant - Smart India Hackathon 2025 @ Adithya Institute of Technology</div>
+      <div class="achievement-item"><i class="fas fa-globe"></i> Participant - International(3) & National(1) Conference : Understanding Innovation & Technologies</div>
+      <div class="achievement-item"><i class="fas fa-book"></i> <strong>Research Publications:</strong> ISBNs: Fake News Detection (ML/NLP), AI Stress Detection, Cybersecurity Fraud Detection, Version Controlled Data Structures (Python UNDO/REDO).</div>
+    </div>
+  </section>
+
+  <!-- 7. CONTACT + RESUME DOWNLOAD -->
+  <section id="contact">
+    <h2 class="section-title"><i class="fas fa-address-card"></i> Contact & Resume</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> <a href="http://rajavigneshs2020@gmail.com" target="_blank" style="color: #1e3a8a; text-decoration: none;">rajavigneshs2020@gmail.com</a></p>
+        <p><i class="fas fa-phone-alt"></i> <a href="tel:+91 8220215073" style="color: #1e3a8a; text-decoration: none;">+91 8220215073</a></p>
+        <p><i class="fab fa-github"></i>  <a href="https://github.com/Rajavignesh06" target="_blank" style="color: #1e3a8a; text-decoration: none;">github.com/in/Rajavignesh06</p> 
+        <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/rajavignesh-sa-a0a704328/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BwJXnr408TnKpLyn8T1iERQ%3D%3D" target="_blank" style="color: #1e3a8a; text-decoration: none;">linkedin.com/in/rajavignesh-s-a</p> 
+        
+        
+        <a href="Rajavignesh Resume.pdf" download class="resume-btn"><i class="fas fa-download"></i> Download Resume (PDF)</a>
+        
+      </div>
+      <div class="contact-info">
+        <p><i class="fas fa-file-contract"></i> <strong>Research Footprints:</strong> 4+ International ISBN publications</p>
+        <p><i class="fas fa-award"></i> Patent: NEXT GEN EGC (Medical AI)</p>
+        <p><i class="fas fa-certificate"></i> Java, Python & AI Tools </p>
+        <p><i class="fas fa-handshake"></i> Open to collaborations & innovative projects</p>
+      </div>
+    </div>
